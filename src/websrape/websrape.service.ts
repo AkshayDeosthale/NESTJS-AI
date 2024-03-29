@@ -22,18 +22,16 @@ export class WebsrapeService {
       // Extract text content from all <p> elements within the <article> tag
       if (!articleExists) {
         articleText = $('p').text(); // Adjust the selector as needed
-        console.log('No <article> tag found on the page.');
       } else {
         articleText = $('article p').text(); // Adjust the selector as needed
-        console.log('No <article> tag found  the page.');
       }
 
-      //   const aiResponse = this.aiService
-      //     .generateText(`This is an Wiki article ,  Please make very fun and readable overview mentioning all important points
-      //   ${articleText}
-      //   `);
+      const aiResponse = this.aiService
+        .generateText(`This is an Wiki article ,  Please make very fun and readable overview mentioning all important points
+        ${articleText}
+        `);
       // Return the scraped text
-      return articleText;
+      return aiResponse;
     } catch (error) {
       console.error('Error fetching and parsing data:', error);
       return null;
@@ -52,10 +50,8 @@ export class WebsrapeService {
       // Extract text content from all <p> elements within the <article> tag
       if (!articleExists) {
         articleText = $('p').text(); // Adjust the selector as needed
-        console.log('No <article> tag found on the page.');
       } else {
         articleText = $('article p').text(); // Adjust the selector as needed
-        console.log('No <article> tag found  the page.');
       }
 
       const aiResponse = this.openAiService.generateGPTText(articleText);
