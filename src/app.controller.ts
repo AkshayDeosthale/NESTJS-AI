@@ -21,9 +21,9 @@ export class AppController {
     private readonly openAIService: OpenaiService,
   ) {}
 
-  @Post('demo')
-  async demoFunction(@Body() requestBody: { url: string }): Promise<string> {
-    return `url is ${requestBody.url}`;
+  @Get()
+  demoFunction(): string {
+    return `Hello from Akshay`;
   }
 
   @Post('ai-response')
